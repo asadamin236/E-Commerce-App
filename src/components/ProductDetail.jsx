@@ -21,55 +21,60 @@ const ProductDetail = () => {
   }, [id]);
 
   return (
-    <div className="container text-center my-5 wrap1">
+    <div className="container my-5">
       {product ? (
-        <div className="img">
-          <img
-            src={product.imgSrc}
-            alt={product.title}
-            className="img-fluid mb-3"
-          />
+        <div className="row mb-5 align-items-center">
+          {/* Image column */}
+          <div className="col-12 col-lg-6 text-center mb-4 mb-lg-0">
+            <img
+              src={product.imgSrc}
+              alt={product.title}
+              className="img-fluid"
+              style={{ maxHeight: "400px", objectFit: "contain" }}
+            />
+          </div>
 
-          <div className="details wrap1">
+          {/* Details column */}
+          <div className="col-12 col-lg-6">
             <h2 className="mb-3">{product.title}</h2>
-
             <p className="mb-3">{product.description}</p>
-            <div className="details-btn">
-              <button className="btn btn-primary mb-2 wrap">
-                {product.price} PKR
-              </button>
-              <button className="btn btn-warning wrap">Add To Cart</button>
+            <div className="d-flex gap-3 flex-wrap">
+              <button className="btn btn-primary">{product.price} PKR</button>
+              <button className="btn btn-warning">Add To Cart</button>
             </div>
           </div>
         </div>
       ) : (
-        <h3>Product Not Found</h3>
+        <h3 className="text-center">Product Not Found</h3>
       )}
 
       {/* Related Products Section */}
-      <h3 className="mt-5 wrap1">Related Products</h3>
-      <div className="row wrap1">
+      <h3 className="text-center mb-4">Related Products</h3>
+      <div className="row g-4">
         {relatedProducts.length > 0 ? (
           relatedProducts.map((item) => (
-            <div key={item.id} className="col-lg-3 col-md-4 col-sm-6">
-              <div className="card" style={{ width: "18rem" }}>
+            <div key={item.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
+              <div className="card h-100 shadow-sm">
                 <img
                   src={item.imgSrc}
                   className="card-img-top"
                   alt={item.title}
+                  style={{ height: "200px", objectFit: "contain" }}
                 />
-                <div className="card-body wrap1">
+                <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{item.title}</h5>
                   <p className="card-text">{item.description}</p>
-                  <button className="btn btn-primary wrap">
-                    {item.price} PKR
-                  </button>
+                  <div className="mt-auto">
+                    <button className="btn btn-primary w-100">
+                      {item.price} PKR
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           ))
         ) : (
-          <p>No Related Products Found</p>
+          <p className="text-center">No Related Products Found</p>
         )}
       </div>
     </div>
