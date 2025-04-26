@@ -21,7 +21,7 @@ const ProductDetail = () => {
   }, [id]);
 
   return (
-    <div className="container text-center my-5">
+    <div className="container text-center my-5 wrap1">
       {product ? (
         <div className="img">
           <img
@@ -30,15 +30,15 @@ const ProductDetail = () => {
             className="img-fluid mb-3"
           />
 
-          <div className="details">
+          <div className="details wrap1">
             <h2 className="mb-3">{product.title}</h2>
 
             <p className="mb-3">{product.description}</p>
             <div className="details-btn">
-              <button className="btn btn-primary mb-2">
+              <button className="btn btn-primary mb-2 wrap">
                 {product.price} PKR
               </button>
-              <button className="btn btn-warning">Add To Cart</button>
+              <button className="btn btn-warning wrap">Add To Cart</button>
             </div>
           </div>
         </div>
@@ -47,8 +47,8 @@ const ProductDetail = () => {
       )}
 
       {/* Related Products Section */}
-      <h3 className="mt-5">Related Products</h3>
-      <div className="row">
+      <h3 className="mt-5 wrap1">Related Products</h3>
+      <div className="row wrap1">
         {relatedProducts.length > 0 ? (
           relatedProducts.map((item) => (
             <div key={item.id} className="col-lg-3 col-md-4 col-sm-6">
@@ -58,10 +58,12 @@ const ProductDetail = () => {
                   className="card-img-top"
                   alt={item.title}
                 />
-                <div className="card-body">
+                <div className="card-body wrap1">
                   <h5 className="card-title">{item.title}</h5>
                   <p className="card-text">{item.description}</p>
-                  <button className="btn btn-primary">{item.price} PKR</button>
+                  <button className="btn btn-primary wrap">
+                    {item.price} PKR
+                  </button>
                 </div>
               </div>
             </div>

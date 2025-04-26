@@ -2,8 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./Navbar.css";
 
-const Products = ({ items = [], cart = [], setCart }) => {
+const Products = ({ items = [], cart = [], setCart = [] }) => {
   const addToCart = (id, price, title, description, imgSrc) => {
     if (!Array.isArray(cart)) {
       console.error("Cart is not an array!");
@@ -66,7 +67,7 @@ const Products = ({ items = [], cart = [], setCart }) => {
                 <div className="card-body">
                   <h5 className="card-title">{product.title}</h5>
                   <p className="card-text">{product.description}</p>
-                  <button className="btn btn-primary mx-3">
+                  <button className="btn btn-primary mx-3 wrap">
                     {product.price} PKR
                   </button>
                   <button
@@ -79,7 +80,7 @@ const Products = ({ items = [], cart = [], setCart }) => {
                         product.imgSrc
                       )
                     }
-                    className="btn btn-warning"
+                    className="btn btn-warning wrap"
                   >
                     Add To Cart
                   </button>
