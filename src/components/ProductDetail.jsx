@@ -35,10 +35,10 @@ const ProductDetail = () => {
           </div>
 
           {/* Details column */}
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 text-center">
             <h2 className="mb-3">{product.title}</h2>
             <p className="mb-3">{product.description}</p>
-            <div className="d-flex gap-3 flex-wrap">
+            <div className="d-flex gap-3 flex-wrap justify-content-center">
               <button className="btn btn-primary">{product.price} PKR</button>
               <button className="btn btn-warning">Add To Cart</button>
             </div>
@@ -61,7 +61,7 @@ const ProductDetail = () => {
                   alt={item.title}
                   style={{ height: "200px", objectFit: "contain" }}
                 />
-                <div className="card-body d-flex flex-column">
+                <div className="card-body d-flex flex-column text-center">
                   <h5 className="card-title">{item.title}</h5>
                   <p className="card-text">{item.description}</p>
                   <div className="mt-auto">
